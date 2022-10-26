@@ -7,6 +7,7 @@ const config = {
         about: './src/pages/About.js',
         home: './src/pages/Home.js',
     },
+
     plugins: [
         new HtmlWebpackPlugin(),
         new StatoscopePlugin({
@@ -19,12 +20,29 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
     },
+
+
+    mode: 'production',
+    target: 'web',
+
     module: {
         rules: [
+            {
+        test: /\, (ts|tsx)$/i,
+        loader: 'ts-loader',
+        exclude: ['/node_modules/'],
             // @TODO js rule
             // @TODO css rule
+            {
+  "extends": "stylelint-config-standard"
+            }
+            }
         ],
     },
+    resolve: {
+        extensions: ['.tsx', '.ts','.js'],
+
+    }
     // @TODO optimizations
     // @TODO lodash treeshaking
     // @TODO chunk for lodash
