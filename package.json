@@ -27,10 +27,12 @@
     "start": "npx webpack serve --mode production",
     "build": "webpack -c config/webpack/prod.js",
     "test": "editorconfig-checker --exclude '.git|node_modules|.DS-Store'",
-    "lint:js": "echo \"implement me\"",
+    "lint:js": "eslint '**/*.js'",
     "lint:css": "stylelint './utils/*.js'",
-    "analyze": "echo \"implement me\"",
-    "validate": "statoscope validate -i stats.json --config=./statoscope.config.js"
+    "analyze": "npx webpack --json stats.json",
+    "validate": "statoscope validate -i stats.json --config=./statoscope.config.js",
+    "deploy": "gh-pages-deploy -- 'A custom commit message'",
+    "clean-source": "rimraf README.md src webroot package.json"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
@@ -45,6 +47,8 @@
     "eslint": "^8.26.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-react": "^7.31.10",
+    "gh-pages": "^4.0.0",
+    "gh-pages-deploy": "^0.5.1",
     "html-webpack-plugin": "^5.5.0",
     "stylelint": "^14.14.0",
     "stylelint-config-standard": "^29.0.0",
@@ -52,7 +56,6 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3.11.3"
   },
- 
   "description": "В этом репозитории находятся материалы для выполнения домашнего задания по темам \"Сборка проекта\" и \"Инфраструктура для разработки\".",
   "main": "statoscope.config.js",
   "repository": {

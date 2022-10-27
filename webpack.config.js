@@ -92,7 +92,7 @@ const config = {
     }, 
            
         ],
-
+},
         // @TODO optimizations
  optimization: {
         minimize: true,
@@ -102,12 +102,30 @@ const config = {
         mergeDuplicateChunks: true,
         runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'async'
+      chunks: 'async',
+      minSize: 20000,
+      minRemainingSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
     },
       },
+  },
 
 
-
+    // @TODO fallback for crypto
      target: 'web',
 
      resolve: {
@@ -119,29 +137,24 @@ const config = {
         'react-is': path.resolve(__dirname, 'node_modules/react-is/cjs/react-is.production.min.js'),
       },
     },
-}
 };
 
-
-
-
-
-
-
-
-    
-
-
-
-  
-
-
     // @TODO lodash treeshaking
-
-
     // @TODO chunk for lodash
     // @TODO chunk for runtime
-  
-    // @TODO fallback for crypto
 
 module.exports = config;
+
+
+const stats = {
+    all: false,
+    Modules: true,
+    children: true,
+    chunks: true,
+    chunksModules: true,
+    chunksOrigins: true,
+    entrypoints: true,
+    hash: true,
+    reasons: true,
+
+};
