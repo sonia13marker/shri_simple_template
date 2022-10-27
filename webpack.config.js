@@ -62,17 +62,21 @@ const config = {
 
             // @TODO js rule
             test: /\.(js|jsx)$/i,
-            use: {
-            loader: 'babel-loader',
+            use: { loader: 'babel-loader',
             options: {
             presets: [
-              '@babel/preset-env',
-              ['@babel/preset-react', { runtime: 'automatic' }]],
+              '@babel/preset-env', ['@babel/preset-react', { 
+                runtime: 'automatic' }
+                ]
+                ],
                 },
                 },
             exclude: /(node_modules)/,
-            resolve: { extensions: ['.js', '.jsx'] },
 
+            resolve: { extensions: ['.js', '.jsx'] },
+        },
+        
+        {
 
             // @TODO css rule
             test: /\.css$/i,
@@ -85,16 +89,12 @@ const config = {
         // loader: 'ts-loader',
         // exclude: ['/node_modules/'],
 
-    }   
+    }, 
            
         ],
-    },
-    
 
-
-
-  // @TODO optimizations
-        optimization: {
+        // @TODO optimizations
+ optimization: {
         minimize: true,
         emitOnErrors: true,
         concatenateModules: true,
@@ -107,7 +107,27 @@ const config = {
       },
 
 
-  };
+     target: 'web',
+    resolve: {
+      fallback: {
+        'crypto': require.resolve('crypto'),
+      },
+      alias: {
+        'crypto-browserify': path.resolve(__dirname, 'src/crypto-fallback.js'),
+        'react-is': path.resolve(__dirname, 'node_modules/react-is/cjs/react-is.production.min.js')
+      },
+    },
+},
+}
+
+
+
+
+    
+
+
+
+  
 
 
     // @TODO lodash treeshaking
@@ -117,6 +137,5 @@ const config = {
     // @TODO chunk for runtime
   
     // @TODO fallback for crypto
-// };
 
 module.exports = config;
