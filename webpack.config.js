@@ -33,9 +33,7 @@ const config = {
         exclude: ['/node_modules/'],
             // @TODO js rule
             // @TODO css rule
-            {
-  "extends": "stylelint-config-standard"
-            }
+           
             }
         ],
     },

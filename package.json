@@ -16,13 +16,14 @@
     "redux-observable": "^2.0.0",
     "rxjs": "^7.1.0"
   },
+  "exports": "./index.js",
   "scripts": {
     "dist": "mkdir -p dist && cp -R node_modules src server.js ... dist",
     "start": "webpack-dev-server start 'public' --no-notify --no-ui --cwd 'public' --files 'index.html,styles/**/*'",
     "build": "echo \"implement me\"",
     "test": "editorconfig-checker --exclude '.git|node_modules|.DS-Store'",
     "lint:js": "echo \"implement me\"",
-    "lint:css": "echo \"implement me\"",
+    "lint:css": "stylelint './utils/*.js'",
     "analyze": "echo \"implement me\"",
     "validate": "statoscope validate -i stats.json --config=./statoscope.config.js"
   },
@@ -35,13 +36,14 @@
     "@statoscope/webpack-plugin": "^5.24.0",
     "babel-loader": "^8.2.5",
     "eslint": "^8.26.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-react": "^7.31.10",
     "html-webpack-plugin": "^5.5.0",
     "stylelint": "^14.14.0",
     "stylelint-config-standard": "^29.0.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.3"
   },
   "description": "В этом репозитории находятся материалы для выполнения домашнего задания по темам \"Сборка проекта\" и \"Инфраструктура для разработки\".",
   "main": "statoscope.config.js",
