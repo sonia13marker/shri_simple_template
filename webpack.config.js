@@ -46,8 +46,8 @@ const config = {
     },
 
 
-    // mode: 'production',
-    // target: 'web',
+    mode: 'production',
+    target: 'web',
 
     devServer: {
     contentBase: path.join(__dirname, 'dist'),
