@@ -6,6 +6,7 @@
   "dependencies": {
     "copy-webpack-plugin": "^11.0.0",
     "crypto-browserify": "^3.12.0",
+    "crypto-js": "^4.1.1",
     "dotenv-webpack": "^8.0.1",
     "lodash": "^4.17.21",
     "lodash-tree-shaking": "^1.0.0",
@@ -51,6 +52,7 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3.11.3"
   },
+ 
   "description": "В этом репозитории находятся материалы для выполнения домашнего задания по темам \"Сборка проекта\" и \"Инфраструктура для разработки\".",
   "main": "statoscope.config.js",
   "repository": {

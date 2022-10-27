@@ -107,18 +107,24 @@ const config = {
       },
 
 
+
      target: 'web',
-    resolve: {
-      fallback: {
-        'crypto': require.resolve('crypto'),
-      },
+
+     resolve: {
+    fallback: {
+    'crypto': require.resolve('crypto'),
+    },
       alias: {
         'crypto-browserify': path.resolve(__dirname, 'src/crypto-fallback.js'),
-        'react-is': path.resolve(__dirname, 'node_modules/react-is/cjs/react-is.production.min.js')
+        'react-is': path.resolve(__dirname, 'node_modules/react-is/cjs/react-is.production.min.js'),
       },
     },
-},
 }
+};
+
+
+
+
 
 
 
