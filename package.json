@@ -22,7 +22,7 @@
   "exports": "./index.js",
   "scripts": {
     "dist": "mkdir -p dist && cp -R node_modules src server.js ... dist",
-    "start": "webpack serve -c config/webpack/dev.js",
+    "start": "npx webpack serve --mode production", 
     "build": "webpack -c config/webpack/prod.js",
     "test": "editorconfig-checker --exclude '.git|node_modules|.DS-Store'",
     "lint:js": "echo \"implement me\"",
@@ -60,4 +60,5 @@
   "bugs": {
     "url": "https://github.com/nickshevr/shri_simple_template/issues"
   }
+
 }
