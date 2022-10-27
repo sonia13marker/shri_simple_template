@@ -3,6 +3,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StatoscopePlugin = require('@statoscope/webpack-plugin').default;
 
+const LodashWebpackPlugin = require('lodash-webpack-plugin');
+
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const config = {
     entry: {
         about: './src/pages/About.js',
@@ -14,13 +19,27 @@ const config = {
       },
 
     plugins: [
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({ 
+            template: path.resolve(__dirname, 'public/index.html'),
+        }),
+
         new StatoscopePlugin({
             saveStatsTo: 'stats.json',
             saveOnlyStats: false,
             open: false,
         }),
+
+        new LodashWebpackPlugin({
+          coercions: true,
+          exotics: true,
+          memoizing: true,
+          collections: true,
+          paths: true
+        }),
+        new CleanWebpackPlugin(),
+
     ],
+
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
@@ -40,37 +59,31 @@ const config = {
     module: {
         rules: [
             {
-        // test: /\, (ts|tsx)$/i,
-        // loader: 'ts-loader',
-        // exclude: ['/node_modules/'],
-
 
             // @TODO js rule
-
-       
-        // test: /\.m?jsx?$/i,
-        // exclude: /node_modules/,
-        // use: babelLoader,
-      //},
-
+            test: /\.(js|jsx)$/i,
+            use: {
+            loader: 'babel-loader',
+            options: {
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { runtime: 'automatic' }]],
+                },
+                },
+            exclude: /(node_modules)/,
+            resolve: { extensions: ['.js', '.jsx'] },
 
 
             // @TODO css rule
-            //написано также перед этим: file.js    import css from "file.css"; 
-           // test: /\.css$/i,
-        //use: ["style-loader", "css-loader"],
-            
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+           
 
 
-            //еще одна попытка загрузить сss loader
-            // loader: 'css-loader',
-            // options: {
-            //     modules: true
-            // }
-
-
-        // resolve: {
-        // extensions: ['.tsx', '.ts','.js'],
+        //Это для TypeScript, пока не трогать, на будущее пусть будет
+        // test: /\, (ts|tsx)$/i,
+        // loader: 'ts-loader',
+        // exclude: ['/node_modules/'],
 
     }   
            
@@ -81,20 +94,18 @@ const config = {
 
 
   // @TODO optimizations
-  //   optimization: {
-  //       minimize: true,
-  //       moduleIds: 'deterministic',
-  //       innerGraph: true, 
-  //       concatenateModules: true,
+        optimization: {
+        minimize: true,
+        emitOnErrors: true,
+        concatenateModules: true,
+        moduleIds: 'size',
+        mergeDuplicateChunks: true,
+        runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'async'
+    },
+      },
 
-  //   //(возможно относится к @TODO chunk for runtime)
-  //       splitChunks: {
-  //           minChunks: 2,
-  //           chunks: 'all',
-  //           minSize: 0,
-  //       }
-// создание распределенного файла времени выполнения (runtime) (возможно относится к @TODO chunk for runtime)
-  // runtimeChunk: 'single',
 
   };
 
