@@ -1,0 +1,23 @@
+name: Test_with_Linter
+
+on: 
+  pull_request:
+    branches:
+      - master
+      - develop
+      
+jobs:
+  check_pr: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Forked - Merge Pull Requests
+  # You may pin to the exact commit or the version.
+  # uses: zombieJ/automerge-action@6b20a4b8b62bf3cf61c5efaef997ab6469d057a8
+      uses: zombieJ/automerge-action@0.0.2
+  
+  use_linter: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Super-Linter
+      uses: github/super-linter@v4.9.7
+  
