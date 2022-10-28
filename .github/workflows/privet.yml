@@ -1,9 +1,6 @@
 name: Test_with_Linter
 
-on: 
-  pull_request:
-    branches:
-      - master
+on: [push]
       
 jobs:
   use_linter: 
