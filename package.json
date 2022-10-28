@@ -23,15 +23,15 @@
   },
   "exports": "./index.js",
   "scripts": {
-    "dist": "mkdir -p dist && cp -R node_modules src server.js ... dist",
     "start": "npx webpack serve --mode production",
-    "build": "webpack -c config/webpack/prod.js",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
     "test": "editorconfig-checker --exclude '.git|node_modules|.DS-Store'",
     "lint:js": "eslint '**/*.js'",
     "lint:css": "stylelint './utils/*.js'",
     "analyze": "npx webpack --json stats.json",
     "validate": "statoscope validate -i stats.json --config=./statoscope.config.js",
-    "deploy": "gh-pages-deploy -- 'A custom commit message'",
+    "deploy": "gh-pages -d dist",
     "clean-source": "rimraf README.md src webroot package.json"
   },
   "devDependencies": {
@@ -62,9 +62,14 @@
     "type": "git",
     "url": "git+https://github.com/nickshevr/shri_simple_template.git"
   },
+  "homepage": "https://sonia13marker.io/shri_simple_template",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nickshevr/shri_simple_template/issues"
-  }
+  },
+  "keywords": []
 }
