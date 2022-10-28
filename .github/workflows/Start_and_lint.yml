@@ -1,11 +1,14 @@
-name: Test_with_Linter
+name: Lint Code Base
 
-on: [push]
-      
+on:
+  push:
+    # Игнорирование ветки `master`
+    branches-ignore:
+      - 'master'
+
 jobs:
-  Start_and_use_lint: 
+  linter:
     runs-on: ubuntu-latest
     steps:
-      
-    - name: Super-Linter
-      uses: github/super-linter@v4.9.7
+      - uses: actions/checkout@v2
+      - uses: docker://github/super-linter:v2.1.0
