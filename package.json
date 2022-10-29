@@ -62,7 +62,7 @@
     "type": "git",
     "url": "git+https://github.com/nickshevr/shri_simple_template.git"
   },
-  "homepage": "https://sonia13marker1.io/shri_simple_template",
+  "homepage": "https://sonia13marker.io/shri_simple_template",
   "dependencies": {
     "gh-pages": "^3.2.3"
   },
