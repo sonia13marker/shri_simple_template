@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
-import lodash from 'lodash';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItem, setText } from '../store';
-import { TodoItem } from './TodoItem';
+import React, { useCallback } from "react";
+import lodash from "lodash";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, setText } from "../store";
+import { TodoItem } from "./TodoItem";
 
 export const TodoList = () => {
     const dispatch = useDispatch();
@@ -29,5 +29,5 @@ export const TodoList = () => {
             </div>
         </div>
     );
-}
+};
 

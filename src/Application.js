@@ -1,8 +1,8 @@
-import React from 'react';
-import { Switch, Route, Link  } from 'react-router-dom';
+import React from "react";
+import { Switch, Route, Link  } from "react-router-dom";
 
-import { About } from './pages/About';
-import { Home } from './pages/Home';
+import { About } from "./pages/About";
+import { Home } from "./pages/Home";
 
 export const Application = () => {
     return (
@@ -21,4 +21,4 @@ export const Application = () => {
             </Switch>
         </div>
     );
-}
+};
