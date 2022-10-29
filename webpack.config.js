@@ -5,9 +5,6 @@ const StatoscopePlugin = require('@statoscope/webpack-plugin').default;
 
 const LodashWebpackPlugin = require('lodash-webpack-plugin');
 
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 const config = {
     entry: {
         about: './src/pages/About.js',
@@ -36,7 +33,6 @@ const config = {
           collections: true,
           paths: true
         }),
-        new CleanWebpackPlugin(),
 
     ],
 
