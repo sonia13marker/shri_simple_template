@@ -1,7 +1,7 @@
 {
   "name": "webpack-cli",
   "version": "4.10.0",
-  "homepage": "http://.",
+  "homepage": "https://sonia13marker.io/shri_simple_template",
   "private": true,
   "dependencies": {
     "copy-webpack-plugin": "^11.0.0",
@@ -19,7 +19,8 @@
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
     "redux-observable": "^2.0.0",
-    "rxjs": "^7.1.0"
+    "rxjs": "^7.1.0",
+    "gh-pages": "^3.2.3"
   },
   "exports": "./index.js",
   "scripts": {
@@ -27,7 +28,7 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "test": "editorconfig-checker --exclude '.git|node_modules|.DS-Store'",
-    "lint:js": "eslint '**/*.js'",
+    "lint:js": "eslint \"./src/**/*.js\" --fix",
     "lint:css": "stylelint './utils/*.js'",
     "analyze": "npx webpack --json stats.json",
     "validate": "statoscope validate -i stats.json --config=./statoscope.config.js",
@@ -61,10 +62,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nickshevr/shri_simple_template.git"
-  },
-  "homepage": "https://sonia13marker.io/shri_simple_template",
-  "dependencies": {
-    "gh-pages": "^3.2.3"
   },
   "author": "",
   "license": "ISC",
