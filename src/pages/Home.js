@@ -7,6 +7,7 @@ export const Home = () => {
             <h1 data-testid="page-title">Home</h1>
             <p>This is the list.</p>
             <TodoList />
+            <h2>Проверка</h2>
         </>
     );
 };
