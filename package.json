@@ -35,7 +35,7 @@
     "build:dev": "webpack --mode development",
     "test": "editorconfig-checker --exclude '.git|node_modules|.DS-Store'",
     "lint:js": "eslint \"./src/**/*.js\" --fix",
-    "lint:css": "stylelint './utils/*.js'",
+    "lint:css": "npx stylelint \"**/*.css\" --fix",
     "analyze": "npx webpack --json stats.json",
     "validate": "statoscope validate -i stats.json --config=./statoscope.config.js",
     "deploy": "gh-pages -d dist",
