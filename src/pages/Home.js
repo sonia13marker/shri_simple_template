@@ -8,6 +8,7 @@ export const Home = () => {
             <p>This is the list.</p>
             <TodoList />
             <h2>Проверка</h2>
+            <h3>Опять проверка</h3>
         </>
     );
 };
