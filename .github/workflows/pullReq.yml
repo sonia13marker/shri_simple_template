@@ -1,0 +1,20 @@
+name: New Pull Request
+run-name: New Pull Request
+on: [pull_request]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: echo "New pull request!"
+      - run: |
+         npm install
+         npm run lint:js
+         npm run lint:css
+         npm run build
+         npm run analyze
+      - run: echo "Successfully done something!"
