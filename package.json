@@ -56,6 +56,12 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^3.11.3"
   },
+"settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+
   "description": "В этом репозитории находятся материалы для выполнения домашнего задания по темам \"Сборка проекта\" и \"Инфраструктура для разработки\".",
   "main": "statoscope.config.js",
   "repository": {
